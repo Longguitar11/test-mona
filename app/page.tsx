@@ -201,7 +201,47 @@ export default function Home () {
             </div>
           </div>
 
-          <div></div>
+          <div className='flex items-center gap-8'>
+            <div className='flex items-center gap-2'>
+              <Image
+                src={'/facebook.svg'}
+                width={16}
+                height={16}
+                alt=''
+                className=''
+              />
+              <p className='font-semibold leading-[20px] align-middle'>
+                Facebook
+              </p>
+            </div>
+
+            <div className='flex items-center gap-2'>
+              <Image
+                src={'/facebook.svg'}
+                width={16}
+                height={16}
+                alt=''
+                className=''
+              />
+              <p className='font-semibold leading-[20px] align-middle'>
+                Fanpage
+              </p>
+            </div>
+
+            <div className='flex items-center gap-2'>
+              <Image
+                src={'/tiktok.svg'}
+                width={16}
+                height={16}
+                alt=''
+                className=''
+              />
+              <p className='font-semibold leading-[20px] align-middle'>
+                Tiktok
+              </p>
+            </div>
+
+          </div>
         </div>
       </div>
     </div>

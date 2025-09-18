@@ -1,103 +1,209 @@
-import Image from "next/image";
+import Banner from '@/components/Banner'
+import Header from '@/components/Header'
+import ImageCard from '@/components/ImageCard'
+import SectionFooter from '@/components/SectionFooter'
+import { HORIZONTAL_CARDS } from '@/constants/HorizontalCards'
+import Image from 'next/image'
 
-export default function Home() {
+export default function Home () {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className='leading-[20px]'>
+      <Header />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <Banner />
+
+      <div className='bg-white font-[BT_Beau_Sans] py-[76px] px-[164px] '>
+        <div className='space-y-[76px]'>
+          <div className='flex items-end justify-between'>
+            <div className='space-y-3 text-[#353535]'>
+              <p className='text-5xl uppercase font-[700] leading-[140%] align-middle'>
+                Bạn học được gì từ khóa học?
+              </p>
+              <p className='text-lg leading-[130%]'>
+                Sau khóa học, bạn sẽ có thể tự tin sử dụng Chaos Vantage như một
+                phần không thể thiếu trong quy trình diễn họa!
+              </p>
+            </div>
+
+            <div className='flex items-center gap-2'>
+              <div className='size-10 flex rounded-full bg-[#F4F5F8]'>
+                <Image
+                  src={'/left-arrow.svg'}
+                  width={16}
+                  height={16}
+                  alt=''
+                  className='h-4 m-auto'
+                />
+              </div>
+              <div className='size-10 flex rounded-full bg-[#006D77]'>
+                <Image
+                  src={'/right-arrow.svg'}
+                  width={16}
+                  height={16}
+                  alt=''
+                  className='h-4 m-auto'
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className='flex gap-8 items-center overflow-visible'>
+            {HORIZONTAL_CARDS.map(item => (
+              <ImageCard
+                key={item.title}
+                imageUrl={item.imageUrl}
+                title={item.title}
+              />
+            ))}
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        <div className=''>
+          <p className='mt-19 mb-10 text-center leading-[140%] font-bold text-5xl text-[#353535] uppercase align-middle'>
+            các dự án nổi bật của boc studio
+          </p>
+
+          <div className='grid grid-cols-3 gap-6'>
+            <div className='relative col-span-2 row-span-2'>
+              <Image
+                src={'/gallary-1.jpg'}
+                width={450}
+                height={600}
+                alt=''
+                className='object-cover size-full rounded-lg'
+              />
+              <div className='absolute bottom-[20px] left-[27px] space-y-2 text-white'>
+                <p className='uppercase font-bold text-2xl leading-[140%]'>
+                  The Agricultural Museum of The Mekong Delta
+                </p>
+                <div className='flex gap-2 items-center border-b w-fit pb-1 border-white'>
+                  <p>Xem thêm</p>
+                  <Image
+                    src={'/right-arrow.svg'}
+                    width={10}
+                    height={10}
+                    alt=''
+                    className='h-[10px]'
+                  />
+                </div>
+              </div>
+            </div>
+
+            <Image
+              src={'/gallary-2.jpg'}
+              width={450}
+              height={300}
+              alt=''
+              className='object-cover size-full row-span-2 rounded-lg'
+            />
+
+            <div className='relative'>
+              <Image
+                src={'/gallary-3.jpg'}
+                width={450}
+                height={300}
+                alt=''
+                className='object-cover size-full rounded-lg'
+              />
+            </div>
+
+            <div className='relative'>
+              <Image
+                src={'/gallary-4.jpg'}
+                width={450}
+                height={300}
+                alt=''
+                className='object-cover size-full rounded-lg'
+              />
+            </div>
+
+            <div className='relative'>
+              <Image
+                src={'/gallary-5.jpg'}
+                width={450}
+                height={300}
+                alt=''
+                className='object-cover size-full rounded-lg'
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className='text-[#3A3A3A] bg-[#F1F1F1] px-[164px] pb-14 pt-24 space-y-6 font-[Inter] '>
+        <div className='flex items-center justify-between'>
+          <div className='space-y-2'>
+            <p className='font-semibold leading-[20px] align-bottom'>MENU</p>
+            <SectionFooter text={'Chương trình học'} />
+            <SectionFooter text={'Quyền lợi'} />
+            <SectionFooter text={'Chúng tôi là ai?'} />
+            <SectionFooter text={'FAQs'} />
+          </div>
+
+          <div className='space-y-2'>
+            <p className='font-semibold leading-[20px] align-bottom'>LIÊN HỆ</p>
+            <div className='flex gap-2 items-center'>
+              <Image src={'/email.svg'} width={16} height={16} alt='' />
+              <p>Email:</p>
+            </div>
+            <p className='font-semibold align-bottom'>monatest@gmail.com</p>
+            <div className='flex gap-2 items-center'>
+              <Image src={'/phone.svg'} width={16} height={16} alt='' />
+              <p>Hotline:</p>
+            </div>
+
+            <p className='font-semibold text-2xl leading-8 align-bottom text-[#006D77]'>
+              0901.123.456
+            </p>
+          </div>
+
+          <div className='p-[20px] rounded-lg flex items-center gap-[18px] bg-white'>
+            <Image
+              src={'/Sticker-KHA.svg'}
+              width={80}
+              height={80}
+              alt=''
+              className='size-20'
+            />
+            <div className='space-y-1'>
+              <p className='leading-[20px] algin-bottom'>Thuộc cộng đồng</p>
+              <p className='font-semibold text-lg leading-7 align-bottom'>
+                Đồng Nghiệp của Hùng
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className='border-t border-[#006D77] pt-4 flex items-center justify-between'>
+          <div className='flex items-center gap-[6px]'>
+            <p>Thiết kế bởi</p>
+            <p>Thiết kế bởi</p>
+            <Image
+              src={'/mona.png'}
+              width={16}
+              height={16}
+              alt=''
+              className='size-4'
+            />
+
+            <div className='font-bold leading-[100%] flex'>
+              MONA<span className='text-[#2686ED]'>.Software </span>
+              <span className='text-[#F51E92] flex'>
+                / E-Learning{' '}
+                <Image
+                  src={'/preview.svg'}
+                  width={16}
+                  height={16}
+                  alt=''
+                  className='size-4'
+                />
+              </span>
+            </div>
+          </div>
+
+          <div></div>
+        </div>
+      </div>
     </div>
-  );
+  )
 }
